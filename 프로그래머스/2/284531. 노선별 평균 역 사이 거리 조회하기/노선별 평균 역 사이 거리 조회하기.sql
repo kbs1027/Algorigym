@@ -7,4 +7,4 @@ from
 GROUP BY
     ROUTE
 ORDER BY
-    1 DESC
+    SUM(D_BETWEEN_DIST) DESC
