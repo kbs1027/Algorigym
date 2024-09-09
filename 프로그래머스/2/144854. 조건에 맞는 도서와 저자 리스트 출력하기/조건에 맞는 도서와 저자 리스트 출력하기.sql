@@ -1,0 +1,6 @@
+SELECT bk.BOOK_ID, au.AUTHOR_NAME, DATE_FORMAT(bk.PUBLISHED_DATE, '%Y-%m-%d') as PUBLISHED_DATE
+from BOOK bk
+join AUTHOR au
+on bk.AUTHOR_ID = au.AUTHOR_ID
+where bk.CATEGORY = '경제'
+order by bk.PUBLISHED_DATE asc
