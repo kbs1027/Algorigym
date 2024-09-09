@@ -2,27 +2,18 @@ from collections import *
 from math import *
 
 def solution(progresses, speeds):
+    ps = list(zip(progresses, speeds))
+    dq = deque(ps)
+    num =0
     answer = []
-    dq = deque()
-    for i in range(len(speeds)):
-        need = ceil((100 - progresses[i])/speeds[i])
-        dq.append(need)
-    
-    f = 0
-    
-    while len(dq) != 0 :
-        cur = dq.popleft()
-        num = 0
-        for i in range(len(dq)):
-            if dq[i] <= cur:
-                num += 1
-            else:
-                break
-        for j in range(num):
+    while len(dq) != 0:
+        num += 1
+        co = 0
+        while dq[0][0] + dq[0][1] * num >= 100:
             dq.popleft()
-        answer.append(num+1)
-    
+            co += 1
+            if len(dq) == 0 :
+                break
+        if co != 0:
+            answer.append(co)
     return answer
-    
-        
-        
